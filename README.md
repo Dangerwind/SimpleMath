@@ -22,7 +22,8 @@ make run-dist
 [![asciicast](https://asciinema.org/a/bHOX2jOcdUgGz6jxPVO1c1hYT.svg)](https://asciinema.org/a/bHOX2jOcdUgGz6jxPVO1c1hYT)
 
 ## 2 - Четное нечетное (Even)
-В игре надо определить четное число или нечетное и написать "yes" если четное или "no" если нечетное.
+В игре надо определить четное число или нечетное и написать "yes" если четное 
+или "no" если нечетное.
 [![asciicast](https://asciinema.org/a/r7SCzcJN1jJFdQWlQje1DFraE.svg)](https://asciinema.org/a/r7SCzcJN1jJFdQWlQje1DFraE)
 
 ## 3 - Счет в уме (Calc) 
@@ -34,11 +35,13 @@ make run-dist
 [![asciicast](https://asciinema.org/a/X3uewFPXKpWcA7MSZLW0Sc8Pj.svg)](https://asciinema.org/a/X3uewFPXKpWcA7MSZLW0Sc8Pj)
 
 ## 5 - Прогрессии (Progression)
-Игра выводит последовательность чисел заменив одно число на "..", необходимо высислить это число и написать его в ответ. 
+Игра выводит последовательность чисел заменив одно число на "..", 
+необходимо высислить это число и написать его в ответ. 
 [![asciicast](https://asciinema.org/a/xp2DFGhoDr1IcYobvlSnEvn09.svg)](https://asciinema.org/a/xp2DFGhoDr1IcYobvlSnEvn09)
 
 ## 6 - Простые числа (Prime)
-Игра выводит число, если это число простое, напишите "yes", в противном слечае напишите "no".
+Игра выводит число, если это число простое, напишите "yes", 
+в противном слечае напишите "no".
 [![asciicast](https://asciinema.org/a/mEIJG7Rq91StAty1SVUrZtXlW.svg)](https://asciinema.org/a/mEIJG7Rq91StAty1SVUrZtXlW)
 
 ### Hexlet tests and linter status:
