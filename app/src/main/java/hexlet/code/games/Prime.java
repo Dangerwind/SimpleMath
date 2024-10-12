@@ -16,20 +16,20 @@ public class Prime {
     private static final int NUMBERS_MAX = PRIME_NUM_TABLE[PRIME_NUM_TABLE.length - 1];
 
     public static void run() {
-        //String[][] gameData = new String[ROUNDS][2];
+        String[][] gameData = new String[ROUNDS][2];
         var userName = Welcome.getName();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         for (int i = 0; i < ROUNDS; i++) {
             var randomNum = new Random().nextInt(1, NUMBERS_MAX);
-            Engine.gameData[i][0] =  Integer.toString(randomNum);
-            Engine.gameData[i][1] = "no";
+            gameData[i][0] =  Integer.toString(randomNum);
+            gameData[i][1] = "no";
             for (int findNum :  PRIME_NUM_TABLE) {
                 if (findNum == randomNum) {
-                    Engine.gameData[i][1] = "yes";
+                    gameData[i][1] = "yes";
                     break;
                 }
             }
         }
-        Engine.run(Engine.gameData, userName);
+        Engine.run(gameData, userName);
     }
 }

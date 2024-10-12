@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Engine {
     // количество раундов любой игры, по умолчанию 3
     public static final int ROUNDS = 3;
-    public static String[][] gameData = new String[ROUNDS][2];
 
     public static void run(String[][] gameData, String userName) {
         for (int i = 0; i < ROUNDS; i++) {

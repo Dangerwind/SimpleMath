@@ -11,16 +11,17 @@ import static hexlet.code.Engine.ROUNDS;
 public class Gcd {
     private static final int MAX_NUMBER = 100;
     public static void run() {
-      //  String[][] gameData = new String[ROUNDS][2];
+        String[][] gameData = new String[ROUNDS][2];
+// стандартное приветствие любой игры
         var userName = Welcome.getName();
         System.out.println("Find the greatest common divisor of given numbers.");
         for (int i = 0; i < ROUNDS; i++) {
             int firstNum = new Random().nextInt(MAX_NUMBER);
             int secondNum = new Random().nextInt(MAX_NUMBER);
-            Engine.gameData[i][0] = Integer.toString(firstNum).concat(" ").concat(Integer.toString(secondNum));
-            Engine.gameData[i][1] = Integer.toString(euclidCalculation(firstNum, secondNum));
+            gameData[i][0] = Integer.toString(firstNum).concat(" ").concat(Integer.toString(secondNum));
+            gameData[i][1] = Integer.toString(euclidCalculation(firstNum, secondNum));
         }
-        Engine.run(Engine.gameData, userName);
+        Engine.run(gameData, userName);
     }
 
     private static int euclidCalculation(int aNumber, int bNumber) {

@@ -15,7 +15,7 @@ public class Calc {
     public static void run() {
 
         String[] signConverter = {" + ", " - ", " * "};
-     //   String[][] gameData = new String[ROUNDS][2];
+        String[][] gameData = new String[ROUNDS][2];
         var userName = Welcome.getName();
         System.out.println("What is the result of the expression?");
         for (int i = 0; i < ROUNDS; i++) {
@@ -23,7 +23,7 @@ public class Calc {
             var secondNum = new Random().nextInt(0, MAX_NUMBER);
             var sign = new Random().nextInt(SIGN_QUANTITY);
             int resultAnswer = 0;
-            Engine.gameData[i][0] = Integer.toString(firstNum).concat(signConverter[sign]).concat(Integer.toString(secondNum));
+            gameData[i][0] = Integer.toString(firstNum).concat(signConverter[sign]).concat(Integer.toString(secondNum));
 
             switch (sign) {
                 case 0 :
@@ -37,8 +37,8 @@ public class Calc {
                     break;
                 default: break;
             }
-            Engine.gameData[i][1] = Integer.toString(resultAnswer);
+            gameData[i][1] = Integer.toString(resultAnswer);
         }
-        Engine.run(Engine.gameData, userName);
+        Engine.run(gameData, userName);
     }
 }

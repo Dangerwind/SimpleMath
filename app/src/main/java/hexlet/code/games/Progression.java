@@ -19,7 +19,7 @@ public class Progression {
     private static final int LENGTH_MIN = 5;
     private static final int LENGTH_MAX = 11;
     public static void run() {
-        //String[][] gameData = new String[ROUNDS][2];
+        String[][] gameData = new String[ROUNDS][2];
         var userName = Welcome.getName();
         System.out.println("What number is missing in the progression?");
 
@@ -28,17 +28,17 @@ public class Progression {
             int startNum = new Random().nextInt(START_MAX_NUM);
             int lengthNum = new Random().nextInt(LENGTH_MIN, LENGTH_MAX);
             int missingNum = new Random().nextInt(lengthNum);
-            Engine.gameData[i][0] = "";
+            gameData[i][0] = "";
             for (int j = 0; j < lengthNum; j++) {
                 if (missingNum == j) {
-                    Engine.gameData[i][0] = Engine.gameData[i][0].concat(".. ");
-                    Engine.gameData[i][1] = Integer.toString(startNum);
+                    gameData[i][0] = gameData[i][0].concat(".. ");
+                    gameData[i][1] = Integer.toString(startNum);
                 } else {
-                    Engine.gameData[i][0] = Engine.gameData[i][0].concat(Integer.toString(startNum)).concat(" ");
+                    gameData[i][0] = gameData[i][0].concat(Integer.toString(startNum)).concat(" ");
                 }
                 startNum +=  moduleNum;
             }
         }
-        Engine.run(Engine.gameData, userName);
+        Engine.run(gameData, userName);
     }
 }
