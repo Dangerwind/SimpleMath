@@ -19,20 +19,20 @@ public class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         Scanner sc = new Scanner(System.in);
-        int gameNumber = sc.nextInt();
+        String gameNumber = sc.next();
         System.out.println(" ");
         switch (gameNumber) {
-            case 1 : Cli.greet();
+            case "1" : Cli.greet();
                 break;
-            case 2 : Even.run();
+            case "2" : Even.run();
                break;
-            case 3 : Calc.run();
+            case "3" : Calc.run();
                 break;
-            case 4 : Gcd.run();
+            case "4" : Gcd.run();
                 break;
-            case 5 : Progression.run();
+            case "5" : Progression.run();
                 break;
-            case 6 : Prime.run();
+            case "6" : Prime.run();
                 break;
             default: break;
         }
