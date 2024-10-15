@@ -2,7 +2,7 @@ package hexlet.code;
 
 import static hexlet.code.Engine.ROUNDS;
 
-public class GameData {
+public final class GameData {
     private String rules;
     private String[][] gameData = new String[ROUNDS][2];
     private String userName;
