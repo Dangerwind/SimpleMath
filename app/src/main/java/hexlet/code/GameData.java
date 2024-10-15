@@ -3,16 +3,16 @@ package hexlet.code;
 import static hexlet.code.Engine.ROUNDS;
 
 public final class GameData {
-    private static String rules;
-    private static String[][] gameData = new String[ROUNDS][2];
-    private static String userName;
+    private  String rules;
+    private  String[][] gameData = new String[ROUNDS][2];
+    private  String userName;
 
 
-    public void setRules(String rules) {
-        this.rules = rules;
+    public void setRules(String rulesText) {
+        rules = rulesText;
     }
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserName(String newUserName) {
+        userName = newUserName;
     }
 
     public void setGameData(int roundNum, String question, String answer) {

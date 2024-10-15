@@ -28,9 +28,9 @@ public class Prime {
     }
     public static void run() {
         GameData base = new GameData();
-        for (int i = 0; i < ROUNDS; i++) {
-            var randomNum = Utils.getRandomInt(1, NUMBERS_MAX);
-            base.setGameData(i, getQuestion(randomNum), getAnswer(randomNum));
+        for (int iter = 0; iter < ROUNDS; iter++) {
+            var rndNum = Utils.getRandomInt(1, NUMBERS_MAX);
+            base.setGameData(iter, getQuestion(rndNum), getAnswer(rndNum));
         }
         base.setRules("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         Engine.run(base);
