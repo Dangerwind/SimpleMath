@@ -10,6 +10,7 @@ import static hexlet.code.Engine.ROUNDS;
 
 public class Even {
     private static final int MAX_NUMBER = 100;
+    private static final int MIN_NUMBER = 1;
     private static String getQuestion(int number) {
         return Integer.toString(number);
     }
@@ -20,9 +21,8 @@ public class Even {
 
     public static void run() {
         GameData base = new GameData();
-
         for (int i = 0; i < ROUNDS; i++) {
-            var randomNum = Utils.getRandomInt(1, MAX_NUMBER);
+            int randomNum = Utils.getRandomInt(MIN_NUMBER, MAX_NUMBER);
             base.setGameData(i, getQuestion(randomNum), getAnswer(randomNum));
         }
         base.setRules("Answer 'yes' if the number is even, otherwise answer 'no'.");
