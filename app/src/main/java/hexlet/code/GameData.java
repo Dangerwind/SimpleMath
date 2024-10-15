@@ -3,9 +3,9 @@ package hexlet.code;
 import static hexlet.code.Engine.ROUNDS;
 
 public final class GameData {
-    private String rules;
-    private String[][] gameData = new String[ROUNDS][2];
-    private String userName;
+    private static String rules;
+    private static String[][] gameData = new String[ROUNDS][2];
+    private static String userName;
 
 
     public void setRules(String rules) {
