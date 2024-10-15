@@ -3,22 +3,29 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Welcome;
+import hexlet.code.GameData;
+import hexlet.code.Utils;
 
-import java.util.Random;
 import static hexlet.code.Engine.ROUNDS;
 
 public class Even {
     private static final int MAX_NUMBER = 100;
+    private static String getQuestion(int number) {
+        return Integer.toString(number);
+    }
+
+    private static String getAnswer(int number) {
+        return number % 2 == 0 ? "yes" : "no";
+    }
+
     public static void run() {
-        String[][] gameData = new String[ROUNDS][2];
-        var userName = Welcome.getName();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        GameData base = new GameData();
+
         for (int i = 0; i < ROUNDS; i++) {
-            var randomNum = new Random().nextInt(1, MAX_NUMBER);
-            gameData[i][0] = Integer.toString(randomNum);
-            gameData[i][1] = randomNum % 2 == 0 ? "yes" : "no";
+            var randomNum = Utils.getRandomInt(1, MAX_NUMBER);
+            base.setGameData(i, getQuestion(randomNum), getAnswer(randomNum));
         }
-        Engine.run(gameData, userName);
+        base.setRules("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        Engine.run(base);
     }
 }

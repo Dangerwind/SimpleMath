@@ -4,41 +4,37 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Welcome;
+import hexlet.code.GameData;
+import hexlet.code.Utils;
 
-import java.util.Random;
 import static hexlet.code.Engine.ROUNDS;
 
 public class Calc {
     private static final int MAX_NUMBER = 100;
     private static final int SIGN_QUANTITY = 3;
+    public static final String[] SIGN_CONVERTER = {" + ", " - ", " * "};
+
+    private static String getQuestion(int firstNum, int secondNum, int sign) {
+        return Integer.toString(firstNum).concat(SIGN_CONVERTER[sign]).concat(Integer.toString(secondNum));
+    }
+
+    private static String getAnswer(int firstNum, int secondNum, int sign) {
+        return switch (sign) {
+            case 0 -> Integer.toString(firstNum + secondNum);
+            case 1 -> Integer.toString(firstNum - secondNum);
+            default -> Integer.toString(firstNum * secondNum);
+        };
+    }
+
     public static void run() {
-
-        String[] signConverter = {" + ", " - ", " * "};
-        String[][] gameData = new String[ROUNDS][2];
-        var userName = Welcome.getName();
-        System.out.println("What is the result of the expression?");
+        GameData base = new GameData();
         for (int i = 0; i < ROUNDS; i++) {
-            var firstNum = new Random().nextInt(0, MAX_NUMBER);
-            var secondNum = new Random().nextInt(0, MAX_NUMBER);
-            var sign = new Random().nextInt(SIGN_QUANTITY);
-            int resultAnswer = 0;
-            gameData[i][0] = Integer.toString(firstNum).concat(signConverter[sign]).concat(Integer.toString(secondNum));
-
-            switch (sign) {
-                case 0 :
-                    resultAnswer = firstNum + secondNum;
-                    break;
-                case 1 :
-                    resultAnswer = firstNum - secondNum;
-                    break;
-                case 2 :
-                    resultAnswer = firstNum * secondNum;
-                    break;
-                default: break;
-            }
-            gameData[i][1] = Integer.toString(resultAnswer);
+            var firstNum = Utils.getRandomInt(0, MAX_NUMBER);
+            var secondNum = Utils.getRandomInt(0, MAX_NUMBER);
+            var sign = Utils.getRandomInt(0, SIGN_QUANTITY);
+            base.setGameData(i, getQuestion(firstNum, secondNum, sign), getAnswer(firstNum, secondNum, sign));
         }
-        Engine.run(gameData, userName);
+        base.setRules("What is the result of the expression?");
+        Engine.run(base);
     }
 }

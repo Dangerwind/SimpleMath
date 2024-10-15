@@ -3,34 +3,29 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Welcome;
+import hexlet.code.GameData;
+import hexlet.code.Utils;
 
-import java.util.Random;
 import static hexlet.code.Engine.ROUNDS;
 
 public class Gcd {
     private static final int MAX_NUMBER = 100;
+    private static String getQuestion(int firstNum, int secondNum) {
+        return Integer.toString(firstNum).concat(" ").concat(Integer.toString(secondNum));
+    }
+    private static String getAnswer(int firstNum, int secondNum) {
+        return Integer.toString(Utils.euclidCalculation(firstNum, secondNum));
+    }
     public static void run() {
-        String[][] gameData = new String[ROUNDS][2];
-// стандартное приветствие любой игры
-        var userName = Welcome.getName();
-        System.out.println("Find the greatest common divisor of given numbers.");
+        GameData base = new GameData();
         for (int i = 0; i < ROUNDS; i++) {
-            int firstNum = new Random().nextInt(MAX_NUMBER);
-            int secondNum = new Random().nextInt(MAX_NUMBER);
-            gameData[i][0] = Integer.toString(firstNum).concat(" ").concat(Integer.toString(secondNum));
-            gameData[i][1] = Integer.toString(euclidCalculation(firstNum, secondNum));
+            int firstNum = Utils.getRandomInt(0, MAX_NUMBER);
+            int secondNum = Utils.getRandomInt(0, MAX_NUMBER);
+            base.setGameData(i, getQuestion(firstNum, secondNum), getAnswer(firstNum, secondNum));
         }
-        Engine.run(gameData, userName);
+        base.setRules("Find the greatest common divisor of given numbers.");
+        Engine.run(base);
     }
 
-    private static int euclidCalculation(int aNumber, int bNumber) {
-        int remainder = aNumber % bNumber;
-        while (remainder > 0) {
-            aNumber = bNumber;
-            bNumber = remainder;
-            remainder = aNumber % bNumber;
-        }
-        return bNumber;
-    }
+
 }

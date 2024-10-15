@@ -6,9 +6,8 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Welcome;
-
-import java.util.Random;
+import hexlet.code.GameData;
+import hexlet.code.Utils;
 
 import static hexlet.code.Engine.ROUNDS;
 
@@ -18,27 +17,34 @@ public class Progression {
     private static final int START_MAX_NUM = 50;
     private static final int LENGTH_MIN = 5;
     private static final int LENGTH_MAX = 11;
-    public static void run() {
-        String[][] gameData = new String[ROUNDS][2];
-        var userName = Welcome.getName();
-        System.out.println("What number is missing in the progression?");
 
-        for (int i = 0; i < ROUNDS; i++) {
-            int moduleNum = new Random().nextInt(MODULE_MIN, MODULE_MAX);
-            int startNum = new Random().nextInt(START_MAX_NUM);
-            int lengthNum = new Random().nextInt(LENGTH_MIN, LENGTH_MAX);
-            int missingNum = new Random().nextInt(lengthNum);
-            gameData[i][0] = "";
-            for (int j = 0; j < lengthNum; j++) {
-                if (missingNum == j) {
-                    gameData[i][0] = gameData[i][0].concat(".. ");
-                    gameData[i][1] = Integer.toString(startNum);
-                } else {
-                    gameData[i][0] = gameData[i][0].concat(Integer.toString(startNum)).concat(" ");
-                }
-                startNum +=  moduleNum;
+    private static String getQuestion(int moduleNum, int startNum, int lengthNum, int missingNum) {
+        var finishString = new StringBuilder();
+
+        for (int j = 0; j < lengthNum; j++) {
+            if (missingNum == j) {
+                finishString.append(".. ");
+            } else {
+                finishString.append(startNum).append(" ");
             }
+            startNum +=  moduleNum;
         }
-        Engine.run(gameData, userName);
+        return finishString.toString();
+    }
+    private static String getAnswer(int moduleNum, int startNum,  int missingNum) {
+        return Integer.toString(startNum + moduleNum * missingNum);
+    }
+    public static void run() {
+        GameData base = new GameData();
+        for (int i = 0; i < ROUNDS; i++) {
+            int moduleNum = Utils.getRandomInt(MODULE_MIN, MODULE_MAX);
+            int startNum = Utils.getRandomInt(0, START_MAX_NUM);
+            int lengthNum = Utils.getRandomInt(LENGTH_MIN, LENGTH_MAX);
+            int missingNum = Utils.getRandomInt(0, lengthNum);
+            base.setGameData(i, getQuestion(moduleNum, startNum, lengthNum, missingNum),
+                    getAnswer(moduleNum, startNum, missingNum));
+        }
+        base.setRules("What number is missing in the progression?");
+        Engine.run(base);
     }
 }
