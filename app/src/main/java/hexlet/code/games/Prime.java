@@ -14,9 +14,6 @@ public class Prime {
         return Integer.toString(number);
     }
     private static String getAnswer(int number) {
-        if (number == 1) {
-            return "yes";
-        }
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 return  "no";
@@ -27,7 +24,7 @@ public class Prime {
     public static void run() {
         GameData base = new GameData();
         for (int iter = 0; iter < ROUNDS; iter++) {
-            var rndNum = Utils.getRandomInt(1, NUMBERS_MAX);
+            var rndNum = Utils.getRandomInt(2, NUMBERS_MAX);
             base.setGameData(iter, getQuestion(rndNum), getAnswer(rndNum));
         }
         base.setRules("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
