@@ -8,23 +8,21 @@ import hexlet.code.Utils;
 import static hexlet.code.Engine.ROUNDS;
 
 public class Prime {
-
-// таблица простых чисел 25 шт
-    public static final int[] PRIME_NUM_TABLE =
-            new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
-// максимальное число вопроса не должно быть больше максимального числа из таблица простых чисел
-    private static final int NUMBERS_MAX = PRIME_NUM_TABLE[PRIME_NUM_TABLE.length - 1];
+    private static final int NUMBERS_MAX = 100;
 
     private static String getQuestion(int number) {
         return Integer.toString(number);
     }
     private static String getAnswer(int number) {
-        for (int findNum :  PRIME_NUM_TABLE) {
-            if (findNum == number) {
-                return  "yes";
+        if (number == 1) {
+            return "yes";
+        }
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return  "no";
             }
         }
-        return "no";
+        return "yes";
     }
     public static void run() {
         GameData base = new GameData();
