@@ -18,18 +18,17 @@ public class Progression {
     private static final int LENGTH_MIN = 5;
     private static final int LENGTH_MAX = 11;
 
-    private static String getQuestion(int moduleNum, int startNum, int lengthNum, int missingNum) {
-        var finishString = new StringBuilder();
+    private static String[] hideQuestion(String[] progression, int missingNum) {
+        progression[missingNum] = "..";
+        return progression;
+    }
 
+    private static String getQuestion(int moduleNum, int startNum, int lengthNum, int missingNum) {
+        String[] progression = new String[lengthNum];
         for (int j = 0; j < lengthNum; j++) {
-            if (missingNum == j) {
-                finishString.append(".. ");
-            } else {
-                finishString.append(startNum).append(" ");
-            }
-            startNum +=  moduleNum;
+            progression[j] = Integer.toString(startNum + j * moduleNum);
         }
-        return finishString.toString();
+        return String.join(" ", hideQuestion(progression, missingNum));
     }
     private static String getAnswer(int moduleNum, int startNum,  int missingNum) {
         return Integer.toString(startNum + moduleNum * missingNum);
