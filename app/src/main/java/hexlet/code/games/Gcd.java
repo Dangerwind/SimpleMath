@@ -19,13 +19,11 @@ public class Gcd {
     public static void run() {
         GameData base = new GameData();
         for (int i = 0; i < ROUNDS; i++) {
-            int firstNum = Utils.getRandomInt(0, MAX_NUMBER);
-            int secondNum = Utils.getRandomInt(0, MAX_NUMBER);
+            int firstNum = Utils.getRandomInt(1, MAX_NUMBER);
+            int secondNum = Utils.getRandomInt(1, MAX_NUMBER);
             base.setGameData(i, getQuestion(firstNum, secondNum), getAnswer(firstNum, secondNum));
         }
         base.setRules("Find the greatest common divisor of given numbers.");
         Engine.run(base);
     }
-
-
 }
