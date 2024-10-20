@@ -9,6 +9,7 @@ public class Utils {
     }
 
     public static int euclidCalculation(int aNumber, int bNumber) {
+        if (bNumber == 0) throw new RuntimeException();
         int remainder = aNumber % bNumber;
         while (remainder > 0) {
             aNumber = bNumber;
