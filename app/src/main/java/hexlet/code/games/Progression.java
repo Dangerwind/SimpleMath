@@ -6,7 +6,6 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.GameData;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.ROUNDS;
@@ -34,16 +33,15 @@ public class Progression {
         return Integer.toString(startNum + moduleNum * missingNum);
     }
     public static void run() {
-        GameData base = new GameData();
+        String[][] gameData = new String[ROUNDS][2];
         for (int i = 0; i < ROUNDS; i++) {
             int moduleNum = Utils.getRandomInt(MODULE_MIN, MODULE_MAX);
             int startNum = Utils.getRandomInt(0, START_MAX_NUM);
             int lengthNum = Utils.getRandomInt(LENGTH_MIN, LENGTH_MAX);
             int missingNum = Utils.getRandomInt(0, lengthNum);
-            base.setGameData(i, getQuestion(moduleNum, startNum, lengthNum, missingNum),
-                    getAnswer(moduleNum, startNum, missingNum));
+            gameData[i][0] = getQuestion(moduleNum, startNum, lengthNum, missingNum);
+            gameData[i][1] = getAnswer(moduleNum, startNum, missingNum);
         }
-        base.setRules("What number is missing in the progression?");
-        Engine.run(base);
+        Engine.run(gameData, "What number is missing in the progression?");
     }
 }

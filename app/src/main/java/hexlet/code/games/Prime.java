@@ -3,7 +3,6 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.GameData;
 import hexlet.code.Utils;
 import static hexlet.code.Engine.ROUNDS;
 
@@ -13,21 +12,21 @@ public class Prime {
     private static String getQuestion(int number) {
         return Integer.toString(number);
     }
-    private static String getAnswer(int number) {
+    private static boolean getAnswer(int number) {
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
-                return  "no";
+                return false;
             }
         }
-        return "yes";
+        return true;
     }
     public static void run() {
-        GameData base = new GameData();
+        String[][] gameData = new String[ROUNDS][2];
         for (int iter = 0; iter < ROUNDS; iter++) {
             var rndNum = Utils.getRandomInt(2, NUMBERS_MAX);
-            base.setGameData(iter, getQuestion(rndNum), getAnswer(rndNum));
+            gameData[iter][0] = getQuestion(rndNum);
+            gameData[iter][1] = getAnswer(rndNum) ? "yes" : "no";
         }
-        base.setRules("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        Engine.run(base);
+        Engine.run(gameData, "Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 }

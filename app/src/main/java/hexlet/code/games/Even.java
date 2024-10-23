@@ -3,7 +3,6 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.GameData;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.ROUNDS;
@@ -15,17 +14,17 @@ public class Even {
         return Integer.toString(number);
     }
 
-    private static String getAnswer(int number) {
-        return number % 2 == 0 ? "yes" : "no";
+    private static boolean getAnswer(int number) {
+        return number % 2 == 0;
     }
 
     public static void run() {
-        GameData base = new GameData();
+        String[][] gameData = new String[ROUNDS][2];
         for (int i = 0; i < ROUNDS; i++) {
             int randomNum = Utils.getRandomInt(MIN_NUMBER, MAX_NUMBER);
-            base.setGameData(i, getQuestion(randomNum), getAnswer(randomNum));
+            gameData[i][0] = getQuestion(randomNum);
+            gameData[i][1] = getAnswer(randomNum) ? "yes" : "no";
         }
-        base.setRules("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        Engine.run(base);
+        Engine.run(gameData, "Answer 'yes' if the number is even, otherwise answer 'no'.");
     }
 }

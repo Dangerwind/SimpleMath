@@ -3,27 +3,38 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.GameData;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.ROUNDS;
 
 public class Gcd {
     private static final int MAX_NUMBER = 100;
+    public static int euclidCalculation(int aNumber, int bNumber) {
+        if (bNumber == 0) {
+            throw new RuntimeException();
+        }
+        int remainder = aNumber % bNumber;
+        while (remainder > 0) {
+            aNumber = bNumber;
+            bNumber = remainder;
+            remainder = aNumber % bNumber;
+        }
+        return bNumber;
+    }
     private static String getQuestion(int firstNum, int secondNum) {
         return Integer.toString(firstNum).concat(" ").concat(Integer.toString(secondNum));
     }
     private static String getAnswer(int firstNum, int secondNum) {
-        return Integer.toString(Utils.euclidCalculation(firstNum, secondNum));
+        return Integer.toString(euclidCalculation(firstNum, secondNum));
     }
     public static void run() {
-        GameData base = new GameData();
+        String[][] gameData = new String[ROUNDS][2];
         for (int i = 0; i < ROUNDS; i++) {
             int firstNum = Utils.getRandomInt(1, MAX_NUMBER);
             int secondNum = Utils.getRandomInt(1, MAX_NUMBER);
-            base.setGameData(i, getQuestion(firstNum, secondNum), getAnswer(firstNum, secondNum));
+            gameData[i][0] = getQuestion(firstNum, secondNum);
+            gameData[i][1] = getAnswer(firstNum, secondNum);
         }
-        base.setRules("Find the greatest common divisor of given numbers.");
-        Engine.run(base);
+        Engine.run(gameData, "Find the greatest common divisor of given numbers.");
     }
 }
