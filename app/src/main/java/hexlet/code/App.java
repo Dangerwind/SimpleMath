@@ -34,7 +34,8 @@ public class App {
                 break;
             case "6" : Prime.run();
                 break;
-            default: break;
+            default: System.out.println("Invalid game number!");
+                break;
         }
     }
 }
