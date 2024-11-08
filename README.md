@@ -8,11 +8,18 @@
 * Простые числа (Prime) 
 
 Скопируйте игру себе на компьютер и запустите.
-`cd`
-`git -clone git@github.com:Dangerwind/java-project-61.git`
-`cd java-project-61/app`
-`make run-dist
-`
+```
+cd
+```
+```
+git -clone git@github.com:Dangerwind/java-project-61.git
+```
+```
+cd java-project-61/app
+```
+```
+make run-dist
+```
 После запуска выберите номер игры (от 1 до 6), и введите свое имя. Игра напишет правила, задаст вопрос "Question" и будет ожидать ответ "Your answer". 
 Необходимо ответить правильно 3 раза подряд. Если ответ будет не верным, игра закончится. 
  
