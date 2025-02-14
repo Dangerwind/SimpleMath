@@ -42,7 +42,7 @@ make run-dist
 Игра выводит число, если это число простое, напишите "yes", в противном слечае напишите "no".
 
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/Dangerwind/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Dangerwind/java-project-61/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/36e7d961c2390365fad9/maintainability)](https://codeclimate.com/github/Dangerwind/java-project-61/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/36e7d961c2390365fad9/test_coverage)](https://codeclimate.com/github/Dangerwind/java-project-61/test_coverage)
+[![Actions Status](https://github.com/Dangerwind/SimpleMath/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Dangerwind/SimpleMath/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/36e7d961c2390365fad9/maintainability)](https://codeclimate.com/github/Dangerwind/SimpleMath/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/36e7d961c2390365fad9/test_coverage)](https://codeclimate.com/github/Dangerwind/SimpleMath/test_coverage)
 
