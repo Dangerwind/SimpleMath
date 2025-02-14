@@ -12,10 +12,10 @@
 cd
 ```
 ```
-git -clone git@github.com:Dangerwind/java-project-61.git
+git -clone git@github.com:Dangerwind/SimpleMath.git
 ```
 ```
-cd java-project-61/app
+cd SimpleMath/app
 ```
 ```
 make run-dist
